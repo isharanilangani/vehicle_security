@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class RolePermissionSeeder extends Seeder
@@ -67,7 +68,7 @@ class RolePermissionSeeder extends Seeder
             'full_name' => 'Admin User',
             'uk_NIC' => '123456789012',
             'email' => 'admin@example.com',
-            'uk_password' => bcrypt('admin123'),
+            'uk_password' => Hash::make('admin123'),
             'phone_number' => '0712345678',
             'status' => 'approved'
         ]);
@@ -78,7 +79,7 @@ class RolePermissionSeeder extends Seeder
             'full_name' => 'Security Personnel',
             'uk_NIC' => '234567890123',
             'email' => 'security@example.com',
-            'uk_password' => bcrypt('security123'),
+            'uk_password' => Hash::make('security123'),
             'phone_number' => '0712345679',
             'status' => 'approved'
         ]);
@@ -89,7 +90,7 @@ class RolePermissionSeeder extends Seeder
             'full_name' => 'Vehicle Owner',
             'uk_NIC' => '345678901234',
             'email' => 'owner@example.com',
-            'uk_password' => bcrypt('owner123'),
+            'uk_password' => Hash::make('owner123'),
             'phone_number' => '0712345680',
             'status' => 'approved'
         ]);
@@ -99,7 +100,7 @@ class RolePermissionSeeder extends Seeder
             'full_name' => 'Pending User',
             'uk_NIC' => '456789012345',
             'email' => 'pending@example.com',
-            'uk_password' => bcrypt('pending123'),
+            'uk_password' => Hash::make('pending123'),
             'phone_number' => '0712345681',
             'status' => 'pending'
         ]);

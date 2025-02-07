@@ -6,6 +6,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -27,7 +28,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password',
+        'uk_password',
     ];
 
     /**
@@ -35,11 +36,14 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
+    public function setPasswordAttribute($value)
     {
-        return [
-            'password' => 'hashed',
-        ];
+        $this->attributes['uk_password'] = Hash::make($value);
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->uk_password;
     }
 
     public function vehicles()

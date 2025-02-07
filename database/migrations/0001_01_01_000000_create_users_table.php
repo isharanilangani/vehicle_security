@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('full_name', 225);
             $table->string('uk_NIC', 12)->unique();
             $table->string('uk_email', 225)->unique();
-            $table->string('uk_password', 225);
+            $table->string('uk_password');
             $table->string('phone_number', 10);
             $table->timestamps();
         });
