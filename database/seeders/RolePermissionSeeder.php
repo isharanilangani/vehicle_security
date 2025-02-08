@@ -68,6 +68,7 @@ class RolePermissionSeeder extends Seeder
             'full_name' => 'Admin User',
             'uk_NIC' => '123456789012',
             'email' => 'admin@example.com',
+            'name'=> 'admin',
             'uk_password' => Hash::make('admin123'),
             'phone_number' => '0712345678',
             'status' => 'approved'
@@ -79,6 +80,7 @@ class RolePermissionSeeder extends Seeder
             'full_name' => 'Security Personnel',
             'uk_NIC' => '234567890123',
             'email' => 'security@example.com',
+            'name' => 'security',
             'uk_password' => Hash::make('security123'),
             'phone_number' => '0712345679',
             'status' => 'approved'
@@ -90,6 +92,7 @@ class RolePermissionSeeder extends Seeder
             'full_name' => 'Vehicle Owner',
             'uk_NIC' => '345678901234',
             'email' => 'owner@example.com',
+            'name' => 'owner',
             'uk_password' => Hash::make('owner123'),
             'phone_number' => '0712345680',
             'status' => 'approved'
@@ -100,6 +103,7 @@ class RolePermissionSeeder extends Seeder
             'full_name' => 'Pending User',
             'uk_NIC' => '456789012345',
             'email' => 'pending@example.com',
+            'name' => 'pending',
             'uk_password' => Hash::make('pending123'),
             'phone_number' => '0712345681',
             'status' => 'pending'
