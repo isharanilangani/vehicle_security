@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Hash;
 class User extends Authenticatable implements HasName
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable;
+    use HasRoles;
 
     protected $primaryKey = 'pk_id';
 

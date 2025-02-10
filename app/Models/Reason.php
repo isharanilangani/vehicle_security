@@ -9,10 +9,13 @@ class Reason extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     // Define the fillable fields (columns you want to mass-assign)
     protected $fillable = [
         'reason',
         'fk_guest_id',
+        'created_at',
     ];
 
     public function guest()
