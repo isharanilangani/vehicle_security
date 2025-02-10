@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\HasName;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasName
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasRoles;
@@ -41,6 +42,12 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes['uk_password'] = Hash::make($value);
+    }
+
+    // get full name - Ensure Filament retrieves a valid name
+    public function getFilamentName(): string
+    {
+        return $this->full_name;
     }
 
     public function getAuthPassword()
