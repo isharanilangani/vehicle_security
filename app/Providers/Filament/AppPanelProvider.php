@@ -18,7 +18,6 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Filament\Pages\Auth\Register;
-use Illuminate\Support\Facades\Auth;
 
 class AppPanelProvider extends PanelProvider
 {
@@ -30,10 +29,6 @@ class AppPanelProvider extends PanelProvider
             ->path('/')
             ->login()
             ->registration(Register::class)
-            ->homeUrl(fn () => $this->getRedirectUrl())
-            ->authMiddleware([
-                Authenticate::class,
-            ])
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -62,24 +57,5 @@ class AppPanelProvider extends PanelProvider
                 Authenticate::class,
             ]);
     }
-
-    private function getRedirectUrl(): string
-{
-    $user = Auth::user();
-
-    if (!$user) {
-        return route('filament.auth.login'); // Redirect to login page
-    }
-
-    if ($user->hasRole('admin')) {
-        return route('filament.admin.dashboard'); // Admin Dashboard
-    } elseif ($user->hasRole('security_personnel')) {
-        return route('filament.security.dashboard'); // Security Dashboard
-    } elseif ($user->hasRole('vehicle_owner')) {
-        return route('filament.vehicle-owner.dashboard'); // Vehicle Owner Dashboard
-    }
-
-    return route('filament.auth.login'); // Default fallback
-}
 }
 
