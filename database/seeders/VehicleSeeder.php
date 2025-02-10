@@ -27,8 +27,8 @@ class VehicleSeeder extends Seeder
             Vehicle::create([
                 'fk_owner_id' => $user->pk_id,
                 'fk_owner_model' => User::class,
-                'type' => 'Toyota Corolla', // Example vehicle name
-                'uk_vehicle_number' => 'ABC-' . rand(1000, 9999), // Randomized plate number
+                'vehicle_name' => 'Toyota Corolla', // Example vehicle name
+                'license_plate' => 'ABC-' . rand(1000, 9999), // Randomized plate number
             ]);
         }
 
