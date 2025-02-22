@@ -66,8 +66,8 @@ class User extends Authenticatable implements HasName
         return $this->hasOne(Staff::class, 'fk_user_id');
     }
 
-    public function students()
+    public function student()
     {
-        return $this->hasOne(Staff::class, 'fk_user_id');
+        return $this->hasOne(Student::class, 'fk_user_id');
     }
 }
